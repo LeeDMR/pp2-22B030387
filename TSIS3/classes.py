@@ -84,11 +84,18 @@ class Account:
         else:
             print('Funds Unavailable!')
 
+def is_prime(number):
+    if number < 2:
+        return False
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+    return True
 
 my_list = []
 a = int(input())
 for i in range (a):
     my_list.append(input())
-filtered_list_iterator = filter(lambda p: p%2 != 0 or p%3 != 0 or p%5 != 0 or p%7 != 0, my_list)
+filtered_list_iterator = filter(lambda p: is_prime(int(p)), my_list)
 filtered_list = list(filtered_list_iterator)
 print(filtered_list)
