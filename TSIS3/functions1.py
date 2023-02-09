@@ -81,10 +81,59 @@ print(reverse(s))
 
 def has_33(nums):
     for i in range(len(nums)):
-        if nums[i] == 3 and nums[i+1] == 3:
+        if nums[i:i+2] == [3,3]:
                 return True
     return False
-if has_33([1, 3, 3]):
+if has_33([1, 3, 1, 3]):
     print('true')
 else:
     print ('false')
+
+# 8
+
+def spy_game(nums):
+    for x in range(0,len(nums)-2):
+
+        if nums[x] == 0 and nums[x+1] == 0 and nums[x+2]==7:
+            return True
+    return False
+
+# 9
+
+def volume(radius):
+    return float(((int(radius) ** 3) * 4 * 3.14)/3)
+print(volume(3))
+
+# 10
+
+def unique_list(l):
+    x = []
+    for a in l:
+        if a not in x:
+            x.append(a)
+    return x
+
+# 11
+
+#ABBA, ABCBA
+def IsPalindrome(s):
+    return s == s[::-1]
+
+s = "malayalam"
+ans = IsPalindrome(s)
+
+if ans:
+    print("Yes")
+else:
+    print("No")
+
+# 12
+
+def histogram(items):
+    for n in items:
+        output = ''
+        times = n
+        while(times > 0):
+          output += '*'
+          times = times - 1
+        print(output)
