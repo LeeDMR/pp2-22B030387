@@ -43,13 +43,13 @@ def previous_track():
 
 while True:
     for event in pygame.event.get():
-        if event.type == SONG_END:
-            next_track()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 play_music()
             elif event.key == pygame.K_s:
                 stop_music()
+            elif event.type == SONG_END:
+                next_track()
             elif event.key == pygame.K_n:
                 next_track()
             elif event.key == pygame.K_p:
