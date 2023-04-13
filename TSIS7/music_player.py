@@ -45,8 +45,6 @@ def previous_track():
 while True:
     screen.blit(text, (190, 190))
     for event in pygame.event.get():
-        if event.type == SONG_END:
-            next_track()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 play_music()
@@ -56,6 +54,8 @@ while True:
                 next_track()
             elif event.key == pygame.K_p:
                 previous_track()
+            if event.type == SONG_END:
+                next_track()
         elif event.type == pygame.QUIT:  # quit
             pygame.mixer.music.stop()
             pygame.quit()
