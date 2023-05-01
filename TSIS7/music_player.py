@@ -54,8 +54,6 @@ while True:
                 next_track()
             elif event.key == pygame.K_p:
                 previous_track()
-            if event.type == SONG_END:
-                next_track()
         elif event.type == pygame.QUIT:  # quit
             pygame.mixer.music.stop()
             pygame.quit()

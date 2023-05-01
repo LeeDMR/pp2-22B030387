@@ -63,14 +63,14 @@ class Snake:
         self.body[0].x += dx
         self.body[0].y += dy
 
-        if self.body[0].x > WIDTH // BLOCK_SIZE:
-            self.body[0].x = 0
-        elif self.body[0].x < 0:
-            self.body[0].x = WIDTH // BLOCK_SIZE
-        elif self.body[0].y < 0:
-            self.body[0].y = WIDTH // BLOCK_SIZE
-        elif self.body[0].y > HEIGHT // BLOCK_SIZE:
-            self.body[0].y = 0
+#        if self.body[0].x > WIDTH // BLOCK_SIZE:
+#            self.body[0].x = 0
+#        elif self.body[0].x < 0:
+#            self.body[0].x = WIDTH // BLOCK_SIZE
+#        elif self.body[0].y < 0:
+#            self.body[0].y = WIDTH // BLOCK_SIZE
+#        elif self.body[0].y > HEIGHT // BLOCK_SIZE:
+#            self.body[0].y = 0
 
     def check_collision(self, food):
         if food.location.x != self.body[0].x:
@@ -122,6 +122,15 @@ def main():
     dx, dy = 0, 0
 
     while running:
+        if snake.body[0].x > WIDTH // BLOCK_SIZE:
+            running = False
+        elif snake.body[0].x < 0:
+            running = False
+        elif snake.body[0].y < 0:
+            running = False
+        elif snake.body[0].y > HEIGHT // BLOCK_SIZE:
+            running = False
+
         SCREEN.fill(BLACK)
         score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
         level_text = score_font.render("level: " + str(level), True, (255, 255, 255))
